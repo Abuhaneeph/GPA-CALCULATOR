@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+       
+
+    
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div class="heading w3-center w3-green">
+            
+            <h3>
+                <span class="text-slider-items w3-animate-zoom w3-center" style="display:none;">
+                    A GPA CALCULATOR,
+                    Recommended for Universities with,Grade system of 5points.,
+                   
+                </span>
+      
+                <strong class="text-slider w3-animate-zoom"></strong>
+                <!-- classes "text-slider" 
+                and "text-slider-items"
+                for typed.js script -->
+            </h3>
+        </div>
+        <div class="w3-responsive bimage">
+        <table class="w3-table w3-centered ">
+            
+<tr class="w3-animate-top" data-wow-delay="0.8s" > 
+    
+    <td>S/N</td>
+    <td><input type="text" id="input" size="2" maxlength="2" ></td>      
+
+<td>   <select id="option" size="0">
+    <option value="A">A</option>
+    <option value="B">B</option>
+     <option value="C">C</option>
+    <option value="D">D</option>
+    <option value="E">E</option>
+    <option value="F">F</option>
+    <option value="null" selected="selected">NULL</option>
+    </select>  
+</td>
+
+<td><button id="addCourse" class="button">Add Course</button>
+    
+  </button>
+</td>
+</tr>
+          
+  <tr class="w3-animate-bottom">
+  <th>Courses</th>
+   <th>Course C.U</th>
+   <th>Grade</th>
+    <th>Delete</th>
+</tr>     
+            
+        </table>
+    
+       
+    
+    
+    </div>
+       
+    <div class="w3-animate-zoom centerbtn" data-wow-delay="0.8s">
+        <button data-text="Awesome" class="btn" id="calculate" style="margin-right: 20px;">
+            <span class="actual-text">&nbsp;Calculate&nbsp;</span>
+            <span class="hover-text" aria-hidden="true">&nbsp;Calculate&nbsp;</span>
+        </button> 
+        
+        <button data-text="Awesome" class="btn" id="reload" style="margin-right: 5px;">
+            <span class="actual-text">&nbsp;Reset&nbsp;</span>
+            <span class="hover-text" aria-hidden="true">&nbsp;Reset&nbsp;</span>
+        </button>
+        
+
+    </div> 
+    <script>
+        
+    </script>     
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="lib/typed/typed.min.js"></script>
+        <script src="script.js" asyn defer></script>
+       
+        
+</script>
+<script>
+    if ($(".text-slider").length == 1) {
+        var typed_strings = $(".text-slider-items").text();
+        var typed = new Typed(".text-slider", {
+            strings: typed_strings.split(","),
+            typeSpeed: 50,
+            loop: true,
+            backDelay: 900,
+            backSpeed: 30,
+        });
+    }
+</script>
+       
+    </body>
+</html>
