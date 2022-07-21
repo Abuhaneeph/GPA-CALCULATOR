@@ -1,5 +1,6 @@
 
 let delBtn;
+
 let gradeValue;
 const rowList=[];
 const unitInput=[];
@@ -10,7 +11,7 @@ const refreshBtn=document.querySelector('#reload');
 const table=document.querySelector('table');
 const calBtn=document.querySelector('#calculate');
 const delIndex=[];
-var index=0;
+let index=0;
 var rowIndex=0;
 let GPA;
   calBtn.disabled=true;
@@ -33,13 +34,13 @@ courseBtn.addEventListener('click',()=>{
   const tableCell2=document.createElement('td');
   const tableCell3=document.createElement('td');
   const tableCell4=document.createElement('td');
-  var id;
+  
   //push each row created to the rowList array and increment tableCell id by 1
 
-  rowIndex=rowIndex+1;
-  tableRow.id=rowIndex;
+  rowIndex++;
+  tableRow.no=rowIndex;
   tableRow.setAttribute('class','w3-center');
-  //tableRow.setAttribute('class','w3-animate-left');
+ 
   tableCell1.textContent="Course"+" "+rowIndex;
   tableCell1.setAttribute("class","course");
   tableCell1.setAttribute("class","w3-animate-left");
@@ -70,19 +71,21 @@ tableCell3.setAttribute("class","w3-animate-zoom");
 unitInput.push(courseCredit);
 gradeInput.push(gradeValue)
 
+
   
   //Create Delete button
+  index=index+1;
 const tag=document.createElement("i");
-tag.setAttribute("class","fa fa-trash 3X");
+tag.setAttribute("class","fa fa-trash 7X");
 tag.setAttribute("style","color:green;");
-delBtn=document.createElement('button');
-delBtn.setAttribute("style","color:#f2f2f2;")
-delBtn.appendChild(tag);
-index=index+1;
-delBtn.id=index;
+tag.setAttribute("id",index);
+
+
+
+
 tableCell4.setAttribute("class","courses");
 tableCell4.setAttribute("class","w3-animate-zoom");
-tableCell4.appendChild(delBtn);
+tableCell4.appendChild(tag);
 
 
   tableRow.appendChild(tableCell1);
@@ -93,9 +96,10 @@ tableCell4.appendChild(delBtn);
   table.appendChild(tableRow);
 
   
-//On Delete event
-  delBtn.addEventListener('click',(event)=>{
+  tag.addEventListener('click',(event)=>{
+    
     delIndex.push(event.target.id-1);
+    
     rowIndex=rowIndex-1;
     table.removeChild(tableRow);
     
@@ -103,6 +107,15 @@ tableCell4.appendChild(delBtn);
   
   }
 })
+
+
+
+
+//On Delete event
+
+
+
+
 
 
 
@@ -139,29 +152,34 @@ alert("Your GPA is "+GPA+"points");
  }else if (delIndex.length > 0 && unitInput.length !=0) {
   let totalGradePoints;
   let totalCredit;
+  //return the unitinput which there index is not in delindex array
   const  delunitInputs=unitInput.filter(function(value,index){
     return delIndex.indexOf(index) == -1;
   })
 
+//return the gradeinput which there index is not in delindex array
 const  delgradeInputs=gradeInput.filter(function(value,index){
   return delIndex.indexOf(index) == -1;
 })
 
+//multiply each delgradepoint with delunitinput
 
 const gradePoints =delunitInputs.map((eachInput,index)=>{
   return eachInput*delgradeInputs[index];
 })
-// if all the courses were deleted 
+// if all the grade inputs courses were deleted 
 if(delgradeInputs.length === 0){
   totalGradePoints=0;
 }else{
+  //else add each gradepoint
   totalGradePoints=gradePoints.reduce((initialGP,finalGP)=>{
     return initialGP+finalGP;
   })
-}// if all the unit inputs were deleted
+}// if all the unit inputs courses were deleted
 if(delunitInputs.length === 0){
 totalCredit=0;
 }else{
+  //else aa each unit inputs
 totalCredit=delunitInputs.reduce((initialCredit,currentCredit)=>{
 return initialCredit+currentCredit;
 })
@@ -182,10 +200,10 @@ GPA=GPA.toFixed(2);
 
 
   
-    
+ /*   
   var valuesArr = [1,2,3,4,5];
   var removeValFrom = [0, 1, 2];
   valuesArr = valuesArr.filter(function(value, index) {
        return removeValFrom.indexOf(index) == -1;
   })
- 
+ */
