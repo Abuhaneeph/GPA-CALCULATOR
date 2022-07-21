@@ -95,7 +95,7 @@ tableCell4.appendChild(tag);
   
   table.appendChild(tableRow);
 
-  
+// On delete event
   tag.addEventListener('click',(event)=>{
     
     delIndex.push(event.target.id-1);
@@ -108,24 +108,11 @@ tableCell4.appendChild(tag);
   }
 })
 
-
-
-
-//On Delete event
-
-
-
-
-
-
-
 // On refresh event
 refreshBtn.addEventListener('click',()=>{
   window.location.reload();
 })
  
-
-
 
 
 // on calculate gpa event
